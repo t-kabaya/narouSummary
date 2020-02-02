@@ -1,0 +1,29 @@
+アーキテクチャ
+
+https://ncode.syosetu.com/n3669fw/
+が、本家サイトだが、
+https://ncode.syosetu.youyaku.com/n3669fw/
+でなろうの小説のようやくを見れるように。
+
+Flaskで、httpリクエストを受付。
+createSummaryで、作成。
+htmlで表示。
+
+4ファイルの4つの関数のみで作成
+route.py
+createSummary.py
+scrapeNarou.py
+createHtml.py
+top.css
+
+route.pyをDIコンテナとして活用し、
+@app.route('/')
+def hello():
+    url = 'aa'
+    rawData = scrapeNarou(url)
+    summary = createSummary(rawData)
+    html = createHtml(summary)
+
+    return html
+
+narouApiというフォルダがスクレイピング用のフォルダ。

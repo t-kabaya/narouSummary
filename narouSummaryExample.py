@@ -312,8 +312,8 @@ text = """第２話　没落令嬢様は極貧生活をする
 
 # 1行1文となっているため、改行コードで分離
 sentences = [t for t in text.split('\n')]
-for i in range(2):
-    print(sentences[i])
+# for i in range(2):
+#     print(sentences[i])
 # 転職 Advent Calendar 2016 - Qiitaの14日目となります。 少しポエムも含みます。
 # 今年11月にSIerからWebサービスの会社へ転職しました。
 
@@ -340,11 +340,13 @@ summarizer.stop_words = [' ']  # スペースも1単語として認識される�
 summarizer_luhn = LuhnSummarizer()
 summarizer_luhn.stop_words = [' ']
 
-summary_luhn = summarizer_luhn(document=parser.document, sentences_count=50)
+summary_luhn = summarizer_luhn(document=parser.document, sentences_count=10)
 
 print('要約しました')
 for sentence in summary_luhn:
     print(sentences[corpus.index(sentence.__str__())])
+
+return summary_luhn
 
 # summary = summarizer(document=parser.document, sentences_count=2)
 # 元の文を表示
