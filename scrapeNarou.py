@@ -10,5 +10,5 @@ def fetchNobel(url):
 
 if __name__ == "__main__":
     url = 'https://ncode.syosetu.com/n6971fy/1/'
-    response = fetch(url)
+    response = fetchNobel(url)
     print(response)
